@@ -1,0 +1,269 @@
+/* ==========================
+   JAMI NATURALMENTE
+   ========================== */
+
+:root{
+    --verde:#6B7F5F;
+    --verde-claro:#A8B89D;
+    --rosa:#C10063;
+    --rosa-claro:#E65C9C;
+    --blanco:#FFFFFF;
+    --gris:#F5F7F5;
+    --texto:#333333;
+    --sombra:0 8px 25px rgba(0,0,0,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(
+        135deg,
+        #f8faf7,
+        #eef4eb
+    );
+    color:var(--texto);
+    min-height:100vh;
+    padding:20px;
+}
+
+/* HEADER */
+
+.site-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.site-header h1{
+    color:var(--verde);
+    font-size:2.4rem;
+    margin-bottom:10px;
+}
+
+.logo{
+    width:180px;
+    max-width:100%;
+    margin:15px auto;
+    display:block;
+}
+
+.subtitle{
+    color:var(--rosa);
+    font-size:1.1rem;
+    font-weight:600;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.crud{
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:25px;
+}
+
+@media(max-width:900px){
+    .crud{
+        grid-template-columns:1fr;
+    }
+}
+
+/* PANELES */
+
+.panel{
+    background:var(--blanco);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:var(--sombra);
+}
+
+.panel h2{
+    color:var(--verde);
+    margin-bottom:20px;
+}
+
+/* FORMULARIO */
+
+.field-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:15px;
+}
+
+.field-group label{
+    margin-bottom:6px;
+    font-weight:600;
+    color:var(--verde);
+}
+
+.field-group input{
+    padding:12px;
+    border:2px solid #dfe6dc;
+    border-radius:12px;
+    outline:none;
+    transition:.3s;
+}
+
+.field-group input:focus{
+    border-color:var(--rosa);
+    box-shadow:0 0 0 4px rgba(193,0,99,.15);
+}
+
+/* BOTONES */
+
+.form-actions{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.btn{
+    border:none;
+    cursor:pointer;
+    border-radius:12px;
+    padding:12px 20px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:var(--rosa);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#a70056;
+}
+
+.btn-secondary{
+    background:#ddd;
+}
+
+.btn-secondary:hover{
+    background:#cfcfcf;
+}
+
+.btn-pdf{
+    background:var(--verde);
+    color:white;
+    margin-top:20px;
+}
+
+.btn-pdf:hover{
+    background:#55654b;
+}
+
+/* TABLA */
+
+.table-toolbar{
+    margin-bottom:15px;
+}
+
+.table-toolbar input{
+    width:100%;
+    padding:12px;
+    border:2px solid #dfe6dc;
+    border-radius:12px;
+}
+
+.table-wrapper{
+    overflow-x:auto;
+}
+
+.crud-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.crud-table thead{
+    background:var(--verde);
+    color:white;
+}
+
+.crud-table th,
+.crud-table td{
+    padding:14px;
+    text-align:left;
+}
+
+.crud-table tbody tr{
+    border-bottom:1px solid #ececec;
+    transition:.2s;
+}
+
+.crud-table tbody tr:hover{
+    background:#f8faf7;
+}
+
+/* BOTONES DE ACCIÓN */
+
+.col-actions{
+    display:flex;
+    gap:8px;
+}
+
+.btn-accion{
+    border:none;
+    cursor:pointer;
+    padding:8px 12px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.btn-edit{
+    background:#ffe7a8;
+}
+
+.btn-delete{
+    background:#ffd6d6;
+}
+
+.btn-add-pdf{
+    background:#d8f5d8;
+}
+
+.btn-accion:hover{
+    transform:scale(1.08);
+}
+
+/* MENSAJES */
+
+.msg{
+    margin-top:15px;
+    font-weight:600;
+    color:var(--rosa);
+}
+
+.msg-empty{
+    text-align:center;
+    color:#777;
+    margin-top:15px;
+}
+
+/* PDF PANEL */
+
+.panel-pdf{
+    margin-top:30px;
+}
+
+/* SCROLL */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--verde);
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#edf1eb;
+}

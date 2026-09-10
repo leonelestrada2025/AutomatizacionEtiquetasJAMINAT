@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAMI NAT — Etiquetas</title>
+    <link rel="stylesheet" href="./css/principal.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>JAMI NAT</h1>
+        <img src="assets/JAMILOGO.png" alt="DASILOGO" class="logo">
+        <p class="subtitle">Sistema de Etiquetas de Productos</p>
+    </header>
+
+    <main class="crud">
+
+        <!-- FORMULARIO -->
+        <section class="panel panel-form">
+            <h2 class="crud-title">Agregar Producto</h2>
+
+            <form class="crud-form" autocomplete="off">
+
+                <div class="field-group">
+                    <label for="idProductos">ID / Código</label>
+                    <input type="number" id="idProductos" name="idProductos" placeholder="Ej. 1001" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="nombreProducto">Descripción</label>
+                    <input type="text" id="nombreProducto" name="nombreProducto" placeholder="Nombre del producto" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="precio">Precio ($)</label>
+                    <input type="number" id="precio" name="precio" placeholder="0.00" step="0.01" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" id="btnCancelar" class="btn btn-secondary" style="display:none;">Cancelar</button>
+                </div>
+
+                <!-- Hidden para saber si estamos editando -->
+                <input type="hidden" name="editId">
+            </form>
+
+            <div id="form-msg" class="msg" aria-live="polite"></div>
+        </section>
+
+        <!-- TABLA -->
+        <section class="panel panel-table">
+            <h2>Productos</h2>
+
+            <div class="table-toolbar">
+                <input type="text" id="buscarCodigo" placeholder="Buscar por código o descripción…">
+            </div>
+
+            <div class="table-wrapper">
+                <table class="crud-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productos-body"></tbody>
+                </table>
+            </div>
+
+            <div id="table-msg" class="msg" aria-live="polite"></div>
+        </section>
+
+    </main>
+
+    <!-- SECCIÓN PDF -->
+    <section class="panel panel-pdf">
+        <h2>Etiquetas seleccionadas para PDF</h2>
+
+        <div class="table-wrapper">
+            <table class="crud-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="pdf-body"></tbody>
+            </table>
+        </div>
+
+        <p id="pdf-empty" class="msg-empty">Usa el botón <strong>+ PDF</strong> en la tabla para agregar productos.</p>
+
+        <button id="generarPDF" class="btn btn-pdf">Generar PDF</button>
+    </section>
+
+    <!-- TEMPLATE fila de tabla principal -->
+    <template id="row-template">
+        <tr>
+            <td class="col-id"></td>
+            <td class="col-desc"></td>
+            <td class="col-precio"></td>
+            <td class="col-actions">
+                <button class="btn-accion btn-edit" title="Editar">✏️</button>
+                <button class="btn-accion btn-delete" title="Eliminar">🗑️</button>
+                <button class="btn-accion btn-add-pdf" title="Añadir al PDF">+ PDF</button>
+            </td>
+        </tr>
+    </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="./js/api.js" type="module"></script>
+    <script src="./js/tabla.js" type="module"></script>
+    <script src="./js/form.js" type="module"></script>
+    <script src="./js/pdf.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
+</body>
+</html>
